@@ -1,0 +1,38 @@
+task copyImages(type: Copy) {
+    from 'images'
+    into 'build'
+}
+
+task copyToImageFolders(type: Copy) {
+    from('images') {
+        include '*.jpg'
+        into 'jpegs'
+    }
+
+    from('images') {
+        include '*.gif'
+        into 'gifs'
+    }
+
+    into 'build'
+}
+
+task zipImages(type: Zip) {
+    baseName  'images'
+    destinationDir  file('build')
+    from 'images'
+}
+task zipImageToFolders(type: Zip) {
+    baseName 'images'
+    destinationDir file('build')
+
+    from('images') {
+        include '*.jpg'
+        into 'jpgs'
+    }
+
+    from('images') {
+        include '*.gif'
+        into 'gifs'
+    }
+}

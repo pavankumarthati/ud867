@@ -16,3 +16,16 @@ task hello {
         println 'Hello World!'
     }
 }
+
+task hello1 {
+    group "udacity"
+    description "This is my second Gradle task"
+
+    doFirst {
+        println "Hello Last world"
+    }
+
+    doLast {
+        println "Hello World!!"
+    }
+}

@@ -1,0 +1,35 @@
+task takeShower {
+    doLast {
+        println "i'm feeling bathed!!"
+    }
+}
+
+task eatBreakFast {
+    dependsOn takeShower
+    finalizedBy "doBrush" // finalizedBy doBrush syntax is not allow. double quotes needed around task name (e.g "doBrush")
+    doLast {
+        println "i'm feeling satisfied"
+    }
+}
+
+task doBrush {
+    doLast {
+        println "i did brushing..."
+    }
+}
+
+task putOnSocks {
+    shouldRunAfter "doBrush"
+
+    doLast {
+        println "i wore my socks"
+    }
+}
+
+task putOnShoes {
+    dependsOn "putOnSocks"
+
+    doLast {
+        println "i puton shoes and ready for office.."
+    }
+}

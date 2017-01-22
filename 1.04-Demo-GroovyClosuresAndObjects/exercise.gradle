@@ -1,0 +1,64 @@
+task groovy {
+    doLast {}
+}
+
+def foo = "One million dollars"
+
+
+def nestMyClosure = { x ->
+    def insideVar = "inside variable"
+    def myClosure = {
+        println "I'm in nested closure"
+        println "inside variable value = ${insideVar}"
+        println "I've access to outer variable = ${foo}"
+    }
+    println "i'm calling nested closure = ${myClosure()}"
+}
+
+nestMyClosure(300)
+
+def doubleIt = { x ->
+    println "foo = ${foo}"
+    x + x
+}
+foo = "doubled it...."
+def applyTwice(func, arg) {
+    println "applying twice = ${func(func(arg))}"
+}
+
+applyTwice(doubleIt, 2)
+
+def myList = ["one", "two", "three"]
+
+def printItem = {item -> println "value of item = ${item}"}
+
+myList.each printItem
+
+println "iterating over list..."
+
+myList.each {val -> println "value of item = ${val}"}
+
+println "iterating over list..."
+
+myList.each {println "value of item = ${it}"}
+
+class GroovyGreeter {
+    def greeting = "Default greeting"
+    def printGreeting() {
+        println "greeting ${greeting}"
+    }
+}
+
+def myGroovyGreeter = new GroovyGreeter()
+
+def greetingClosure = {
+    greeting = "This is modified greeting"
+    printGreeting()
+}
+
+greetingClosure.delegate = myGroovyGreeter
+greetingClosure()
+
+foo = "bar"
+println "$foo + foo = ${foo + "foo"}"
+println "$foo + foo = " + (foo + "foo")

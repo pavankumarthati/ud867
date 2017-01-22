@@ -1,0 +1,59 @@
+/*task groovy {
+    doLast {
+
+    }
+}*/
+
+class JavaGreeter {
+    public void greetUser() {
+        System.out.println("Hi pavan")
+    }
+}
+
+JavaGreeter greeter = new JavaGreeter()
+greeter.greetUser()
+
+def foo = 6.5
+
+//println "foo has value " + foo
+println "foo has value $foo"
+
+println "let's do some math (5 + 6) = ${5 + 6}"
+println "type of foo ${foo.class}"
+
+foo = "Hi i'm string"
+println "type of foo ${foo.class}"
+
+foo = 5
+
+def doubleIt(n) {
+    n + n // the last statement is what returned
+}
+
+println "doubleIt($foo) = ${doubleIt(foo)}"
+
+foo = "foobar"
+
+println "doubleIt($foo) = ${doubleIt(foo)}"
+
+def oneArg() {
+    println "calling with no arguments"
+}
+
+def oneArg(x) {
+    println "calling one argument with value $x"
+    x
+}
+
+def twoArgs(x, y) {
+    println "calling two arguments with values $x, $y"
+    x + y
+}
+
+//oneArg // this will give cause error
+oneArg()
+oneArg(300)
+//twoArgs oneArg 300, 500 // thsi will cause error
+twoArgs oneArg(300), 500
+
+println "hello World!"
