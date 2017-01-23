@@ -1,0 +1,10 @@
+task printGreeting {
+    doLast {
+        println greeting
+        println "type of count = ${count.class}"
+    }
+}
+
+ext {
+     greeting = "Hello from ext property"
+}
