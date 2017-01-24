@@ -28,7 +28,12 @@ task hello(type: HelloTask)
 class HelloTask extends DefaultTask {
     @TaskAction
     void doAction() {
+        logger.info('logging at start of task action')
         println 'Hello World'
+//        logger.lifecycle('Hello World')
+        logger.debug('Catch me if you can')
+        // gradle -d hello | grep "Catch me if you can"
+        logger.info('loggin at end of task action')
     }
 }
 
