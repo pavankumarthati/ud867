@@ -31,6 +31,7 @@ apply plugin: 'java'
 
 jar {
     manifest {
+//        attributes 'Implementation-Version': '1.0', 'Hi-name' : '2'
         attributes 'Implementation-Version': '1.0'
     }
 }
