@@ -36,6 +36,17 @@ android {
         versionCode 1
         versionName "1.0"
     }
+
+    productFlavors {
+        free {
+            applicationId "com.udacity.gradle.favorspecificactivity.free"
+        }
+
+        paid {
+            applicationId "com.udacity.gradle.favorspecificactivity.paid"
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
