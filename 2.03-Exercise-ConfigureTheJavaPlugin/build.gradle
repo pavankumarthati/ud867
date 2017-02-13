@@ -29,6 +29,8 @@ https://docs.gradle.org/current/userguide/java_plugin.html#sec:source_sets
 
 apply plugin: 'java'
 
+archivesBaseName = 'xyz'
+buildDir = 'build1'
 jar {
     manifest {
 //        attributes 'Implementation-Version': '1.0', 'Hi-name' : '2'
@@ -42,4 +44,12 @@ sourceSets {
             srcDir 'java'
         }
     }
+}
+
+uploadArchives {
+	repositories {
+		flatDir {
+			dirs 'repos'
+		}
+	}
 }
